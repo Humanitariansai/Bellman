@@ -40,6 +40,9 @@ Reinforcement learning addresses the problem of an agent learning to act in an e
 The Bellman optimality equation, which forms the theoretical foundation for many RL algorithms, states:
 
 
+$$Q^*(s,a) = \mathbb{E}_{s'} \left[ R(s,a,s') + \gamma \max_{a'} Q^*(s',a') \right]$$
+
+
 **Q*(s,a) = E[R(s,a,s') + γ·max_a' Q*(s',a')]**
 
 Classical RL approaches broadly fall into three categories examined within the Bellman framework:
