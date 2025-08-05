@@ -1,12 +1,12 @@
 # Bellman Framework: Module One
 
-## Introduction to Hybrid RL-LLM Systems
+## 1. Introduction to Hybrid RL-LLM Systems
 
 Recent advances in large language models (LLMs) have revolutionized natural language processing and sparked interest in their application to sequential decision-making tasks. However, pure LLM-based agents often struggle with consistent decision-making, accurate value estimation, and learning from environmental feedback. Concurrently, classical reinforcement learning (RL) techniques continue to demonstrate strengths in domains requiring statistical reasoning, explicit exploration, and iterative policy improvement.
 
 The Bellman framework represents an ambitious effort to bridge these paradigms, asking the foundational question: "How has the classical RL framework evolved with modern agents?"
 
-## The RL-LLM Integration Challenge
+## 2. The RL-LLM Integration Challenge
 
 Pure LLM-based agents face several significant limitations:
 
@@ -22,9 +22,50 @@ Meanwhile, classical RL excels at:
 - Iterative policy improvement through direct experience
 - Adherence to mathematical optimality principles
 
-## Foundational Integration Approaches
+## 3. Background
 
-### 1. Bandit Integration Agents
+Recent advances in large language models (LLMs) have revolutionized natural language processing and sparked interest in their application to sequential decision-making tasks. However, pure LLM-based agents often struggle with consistent decision-making, accurate value estimation, and learning from environmental feedback (Silver et al., 2023). Concurrently, classical reinforcement learning (RL) techniques continue to demonstrate strengths in domains requiring statistical reasoning, explicit exploration, and iterative policy improvement (Sutton & Barto, 2018).
+
+The Bellman framework represents an ambitious effort to bridge these paradigms, asking the foundational question: "How has the classical RL framework evolved with modern agents?" Named after Richard Bellman, whose optimality principle remains central to modern RL, this experimental framework challenges the tendency to use LLMs as standalone agents by systematically investigating integration approaches across various decision-making contexts.
+
+### 3.1 Classical Reinforcement Learning
+
+Reinforcement learning addresses the problem of an agent learning to act in an environment to maximize cumulative reward. The classical RL framework formalizes this as a Markov Decision Process (MDP) defined by:
+- A state space $S$
+- An action space $A$
+- A transition function $P(s'|s,a)$
+- A reward function $R(s,a,s')$
+- A discount factor $\gamma$
+
+The Bellman optimality equation, which forms the theoretical foundation for many RL algorithms, states:
+
+$$Q^*(s,a) = \mathbb{E}_{s'} \left[ R(s,a,s') + \gamma \max_{a'} Q^*(s',a') \right]$$
+
+Classical RL approaches broadly fall into three categories examined within the Bellman framework:
+
+1. **Multi-armed bandits**: Simplified decision problems focusing on exploration-exploitation trade-offs
+2. **Tabular methods**: Algorithms that explicitly represent and update value functions for each state-action pair
+3. **Policy gradient methods**: Approaches that directly optimize parameterized policies through gradient-based learning
+
+### 3.2 Large Language Models in Decision-Making
+
+Large language models have demonstrated remarkable capabilities in reasoning, planning, and knowledge retrieval. When applied to decision-making, LLMs offer several advantages:
+
+- Rich semantic understanding of problem contexts
+- Zero-shot and few-shot adaptation to new tasks
+- Ability to incorporate diverse knowledge sources
+- Natural language interfaces for human-AI interaction
+
+However, LLMs face significant limitations when used as standalone agents:
+
+- Inconsistent value estimation and reward modeling
+- Difficulty with explicit exploration strategies
+- Limited online learning capabilities
+- Challenges in maintaining optimization guarantees
+
+## 4. Foundational Integration Approaches
+
+### 4.1 Bandit Integration Agents
 
 Bandit Integration Agents serve as the framework's exploration mechanism, investigating how multi-armed bandit algorithms can work alongside LLMs to balance exploration and exploitation when multiple potential actions exist.
 
@@ -36,7 +77,7 @@ In Madison's Multi-Armed Bandit Optimization project, content variations could b
 - Methods for incorporating user feedback to update selection probabilities
 - Approaches for balancing creative exploration with exploitation of proven messaging
 
-### 2. Tabular RL Agents
+### 4.2 Tabular RL Agents
 
 Tabular RL Agents function as structured memory components, maintaining and updating state-action value tables that can be referenced by language models.
 
@@ -48,7 +89,7 @@ Mycroft's Analytical Agents could be enhanced through integration with tabular R
 - Methods for LLMs to explain investment decisions based on learned Q-values
 - Approaches for making transparent the statistical rationale behind AI-powered investment recommendations
 
-### 3. Policy Gradient Agents
+### 4.3 Policy Gradient Agents
 
 Policy Gradient Agents explore how neural policies can complement or constrain LLM outputs, learning optimal behaviors through direct experience.
 
@@ -60,9 +101,9 @@ Dayhoff's disease tracking and intervention modeling could be enhanced by policy
 - Methods for LLMs to generate intervention plans constrained by learned policies
 - Approaches for balancing public health expertise encoded in LLMs with statistically-validated intervention strategies
 
-## Coordination Architectures
+## 5. Coordination Architectures
 
-### 1. Sequential Processing Architecture
+### 5.1 Sequential Processing Architecture
 
 Sequential architectures establish pipelines where RL and LLM components operate in succession, either with RL making primary decisions explained by LLMs, or LLMs generating options evaluated and selected by RL methods.
 
@@ -74,7 +115,7 @@ Popper's approach to gathering and evaluating evidence could be enhanced through
 - RL-second approaches where reinforcement learning helps prioritize which challenges are most likely to yield valuable insights
 - Methods for updating the selection mechanism based on which types of challenges have historically been most effective
 
-### 2. Parallel Processing Architecture
+### 5.2 Parallel Processing Architecture
 
 Parallel architectures involve simultaneous operation of RL and LLM components, with mechanisms for integrating their outputs based on context.
 
@@ -86,7 +127,7 @@ Madison's Research Agents could benefit from parallel processing architectures. 
 - Methods for dynamically weighting these insights based on contextual factors
 - Approaches for learning which component should have more influence in different market research scenarios
 
-### 3. Hierarchical Integration Architecture
+### 5.3 Hierarchical Integration Architecture
 
 Hierarchical approaches assign different components to different levels of abstraction in the decision-making process.
 
@@ -98,9 +139,9 @@ Mycroft's approach to AI sector investing could be enhanced through hierarchical
 - While employing RL for tactical execution decisions like entry/exit timing
 - Methods for ensuring coherence between strategic and tactical layers
 
-## Core Integration Components
+## 6. Core Integration Components
 
-### 1. Value-Guided Reasoning
+### 6.1 Value-Guided Reasoning
 
 Value-guided reasoning explores how to constrain or inform LLM outputs based on learned value functions from RL components.
 
@@ -112,7 +153,7 @@ Mycroft's Advisory Agents could benefit from value-guided reasoning. The Bellman
 - Methods for ensuring LLM recommendations align with long-term value optimization
 - Approaches for explaining the statistical basis of investment recommendations in natural language
 
-### 2. Dynamic Consistency Verification
+### 6.2 Dynamic Consistency Verification
 
 Consistency verification explores methods to check whether LLM-generated plans satisfy the Bellman equation, redirecting reasoning when inconsistencies are detected.
 
@@ -124,7 +165,7 @@ Dayhoff's disease intervention planning could be enhanced through consistency ve
 - Methods for identifying specific steps in public health plans that may lead to suboptimal outcomes
 - Approaches for revising intervention strategies to ensure mathematical consistency
 
-### 3. Uncertainty-Aware Decision Optimization
+### 6.3 Uncertainty-Aware Decision Optimization
 
 Uncertainty-aware approaches explicitly represent and reason about different types of uncertainty in hybrid systems.
 
@@ -136,9 +177,9 @@ Popper's approach to evaluating uncertainty in AI systems could itself be enhanc
 - Methods for determining when to explore uncertain aspects of AI capabilities
 - Approaches for calibrating confidence in both RL and LLM components
 
-## Learning Mechanisms
+## 7. Learning Mechanisms
 
-### 1. Cross-Technique Knowledge Transfer
+### 7.1 Cross-Technique Knowledge Transfer
 
 Cross-technique transfer explores approaches to sharing knowledge between RL and LLM components.
 
@@ -150,7 +191,7 @@ Madison's Brand Voice Personalization could benefit from bidirectional knowledge
 - Methods for using LLM-generated brand principles to initialize RL policies
 - Approaches for maintaining consistency between statistically-learned and language-based brand representations
 
-### 2. Meta-Learning for Integration
+### 7.2 Meta-Learning for Integration
 
 Meta-learning approaches adapt the integration architecture itself based on performance.
 
@@ -162,9 +203,9 @@ Mycroft's approach to distributing computational resources could be enhanced thr
 - Methods for learning which integration architecture works best for different types of financial analysis
 - Approaches for continuously optimizing the hybrid system architecture itself
 
-## Evaluation Methodologies
+## 8. Evaluation Methodologies
 
-### 1. Comparative Benchmarking
+### 8.1 Comparative Benchmarking
 
 Developing standardized benchmarks to compare pure RL, pure LLM, and hybrid approaches across decision-making domains.
 
@@ -177,7 +218,7 @@ The Bellman framework could develop benchmarks that evaluate performance across 
 - Accuracy assessments for Dayhoff's biological predictions
 - Rigor measurements for Popper's AI validation approaches
 
-### 2. Ablation Studies
+### 8.2 Ablation Studies
 
 Systematically removing or isolating components to understand their contribution and interaction effects.
 
@@ -189,7 +230,7 @@ The Bellman framework could conduct ablation studies across all frameworks to id
 - How much benefit comes from the integration mechanism itself versus individual components
 - Which integration patterns yield the strongest synergistic effects
 
-## Future Directions
+## 9. Future Directions
 
 The Bellman framework will explore several promising research directions:
 
@@ -201,7 +242,7 @@ The Bellman framework will explore several promising research directions:
 
 4. **Human-in-the-loop integration** methods that effectively incorporate human feedback into hybrid learning processes
 
-## Get Involved
+## 10. Get Involved
 
 Bellman provides a comprehensive framework for experimenting with hybrid RL-LLM systems. Explore the codebase, run example integrations, or contribute to this educational research project.
 
